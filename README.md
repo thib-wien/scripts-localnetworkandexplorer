@@ -7,3 +7,7 @@ I do not recommend level 4, use it only if the other levels failed.
 Level 5 has to be executed manually (not implemented): throw the computer into fire.
 
 `./start` will start the local network and the explorer, following the instructions of the wiki. To do things properly, it calls first _stop_ (where the user needs a strength of 1 usually)
+
+*Acknowledgements*
+
+Thanks to [D13ce](https://github.com/D13ce) and [Rami](https://github.com/remoterami) and [gocoffeecup](https://github.com/gocoffeecup) for their help to exorcize my computer.
