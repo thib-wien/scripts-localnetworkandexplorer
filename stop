@@ -35,10 +35,10 @@ esac
 
 case $strength in
     4|3|2) set -v
-           sudo kurtosis enclave rm -f my-testnet
+           kurtosis enclave rm -f my-testnet
            sudo docker rm -f $(docker ps -qa)
            sudo docker compose down
-           sudo kurtosis engine stop
+           kurtosis engine stop
            sudo docker network rm -f kt-my-testnet
            set +v
            ;;
