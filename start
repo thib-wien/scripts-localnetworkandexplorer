@@ -1,15 +1,19 @@
 #!/bin/sh
 set -v
-notallmodules="indexer eth1indexer frontend-data-updater"
 
 ./stop
 cd ~/eth2-beaconchain-explorer/local-deployment/
 
 set +v
 echo "================================================================"
-echo "Launch all modules?"
-echo "'n' will launch  only  $notallmodules"
-read -p "y/n ?  " runall
+echo "Which modules must be launched?"
+echo "1: statistics"
+echo "2: rewards-exporter"
+echo "3: eth1indexer"
+echo "4: indexer"
+echo "5: frontend-data-updater"
+echo "6: frontend"
+read -p "Type a series of numbers (ex: 345):  " numbers
 echo "================================================================"
 set -v
 
@@ -21,9 +25,27 @@ kurtosis run --enclave my-testnet . "$(cat network-params.json)"
 
 bash provision-explorer-config.sh
 
-case $runall in
-    y) docker compose up -d;;
-    n) docker compose up -d ${notallmodules};;
-    *) echo "Please start Docker manually.";;
+set +v
+bc_modules=""
+case $numbers in
+    *1*) bc_modules=$bc_modules" statistics";;
 esac
+case $numbers in
+    *2*) bc_modules=$bc_modules" rewards-exporter";;
+esac
+case $numbers in
+    *3*) bc_modules=$bc_modules" eth1indexer";;
+esac
+case $numbers in
+    *4*) bc_modules=$bc_modules" indexer";;
+esac
+case $numbers in
+    *5*) bc_modules=$bc_modules" frontend-data-updater";;
+esac
+case $numbers in
+    *6*) bc_modules=$bc_modules" frontend";;
+esac
+set -v
+
+docker compose up -d ${bc_modules}
 
