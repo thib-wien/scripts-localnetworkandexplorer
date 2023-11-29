@@ -10,5 +10,5 @@ Level 5 has to be executed manually (not implemented): throw the computer into f
 
 *Acknowledgements*
 
-Thanks to [D13ce](https://github.com/D13ce) and [Rami](https://github.com/remoterami) and [gocoffeecup](https://github.com/gocoffeecup) for their help to exorcize my computer.
+Thanks to @D13ce and @remoterami and @gocoffeecup for their help to exorcize my computer.
 
